@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char str[1000];
+    int i;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    // Convert all characters to lowercase
+    for (i = 0; str[i] != '\0'; i++) {
+        str[i] = tolower((unsigned char)str[i]);
+    }
+
+    // Convert first character to uppercase
+    if (str[0] != '\0' && str[0] != '\n') {
+        str[0] = toupper((unsigned char)str[0]);
+    }
+
+    printf("Sentence case: %s", str);
+
+    return 0;
+}
