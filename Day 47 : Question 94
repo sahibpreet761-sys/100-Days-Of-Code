@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    char str[200];
+    int i, start = 0, maxStart = 0;
+    int count = 0, maxLength = 0;
+
+    printf("Enter a sentence: ");
+    fgets(str, sizeof(str), stdin);
+
+    for (i = 0; ; i++) {
+        if (str[i] != ' ' && str[i] != '\n' && str[i] != '\0') {
+            count++;
+        }
+        else {
+            if (count > maxLength) {
+                maxLength = count;
+                maxStart = start;
+            }
+
+            count = 0;
+            start = i + 1;
+        }
+
+        if (str[i] == '\0') {
+            break;
+        }
+    }
+
+    printf("Longest word: ");
+
+    for (i = maxStart; i < maxStart + maxLength; i++) {
+        printf("%c", str[i]);
+    }
+
+    printf("\nLength: %d\n", maxLength);
+
+    return 0;
+}
