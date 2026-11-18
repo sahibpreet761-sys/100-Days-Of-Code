@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    int num, count = 0;
+    int sum = 0;
+    float average;
+
+    // Open file in read mode
+    fp = fopen("numbers.txt", "r");
+
+    if (fp == NULL) {
+        printf("Error: File not found!");
+        return 1;
+    }
+
+    // Read integers and calculate sum
+    while (fscanf(fp, "%d", &num) == 1) {
+        sum = sum + num;
+        count++;
+    }
+
+    fclose(fp);
+
+    if (count == 0) {
+        printf("File contains no integers.");
+        return 0;
+    }
+
+    average = (float)sum / count;
+
+    printf("Sum = %d\n", sum);
+    printf("Average = %.2f\n", average);
+
+    return 0;
+}
