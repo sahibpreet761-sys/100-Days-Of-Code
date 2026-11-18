@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    char str[100];
+
+    // Open existing file in read mode
+    fp = fopen("info.txt", "r");
+
+    if (fp == NULL) {
+        printf("Error: File not found!");
+        return 1;
+    }
+
+    printf("File contents:\n");
+
+    // Read and print lines until EOF
+    while (fgets(str, sizeof(str), fp) != NULL) {
+        printf("%s", str);
+    }
+
+    // Close the file
+    fclose(fp);
+
+    return 0;
+}
