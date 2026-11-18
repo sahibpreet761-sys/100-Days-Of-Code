@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int nums[100], answer[100], n;
+    int i, product;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter array elements:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &nums[i]);
+    }
+
+    // Calculate prefix products
+    product = 1;
+    for (i = 0; i < n; i++) {
+        answer[i] = product;
+        product = product * nums[i];
+    }
+
+    // Calculate suffix products
+    product = 1;
+    for (i = n - 1; i >= 0; i--) {
+        answer[i] = answer[i] * product;
+        product = product * nums[i];
+    }
+
+    printf("Product array: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", answer[i]);
+    }
+
+    return 0;
+}
