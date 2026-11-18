@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    char date[20];
+    int i;
+
+    printf("Enter date (dd/04/yyyy): ");
+    scanf("%s", date);
+
+    printf("Formatted date: ");
+
+    // Print day
+    for (i = 0; i < 2; i++) {
+        printf("%c", date[i]);
+    }
+
+    printf("-Apr-");
+
+    // Print year
+    for (i = 6; i < 10; i++) {
+        printf("%c", date[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
