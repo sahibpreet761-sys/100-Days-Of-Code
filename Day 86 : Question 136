@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+enum Operations {
+    ADD = 1, SUBTRACT, MULTIPLY
+};
+
+int main() {
+    int a = 10, b = 5;
+    enum Operations choice = ADD;
+
+    switch(choice) {
+        case ADD:
+            printf("Addition = %d", a + b);
+            break;
+
+        case SUBTRACT:
+            printf("Subtraction = %d", a - b);
+            break;
+
+        case MULTIPLY:
+            printf("Multiplication = %d", a * b);
+            break;
+
+        default:
+            printf("Invalid Choice");
+    }
+
+    return 0;
+}
